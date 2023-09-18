@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "546033445734",
+    "project_id": "push-notification-3bf8c",
+    "storage_bucket": "push-notification-3bf8c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546033445734:android:3ac47e491137d7751a76a7",
+        "android_client_info": {
+          "package_name": "com.example.remote_notification"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeF_eSz4CnmHQJXnsOey0XPds3TKBmFrc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
