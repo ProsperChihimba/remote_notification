@@ -1,10 +1,17 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:remote_notification/home.dart';
 import 'package:remote_notification/services/notification_contoller.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   NotificationController.initializeRemoteNotifications(debug: true);
+  await NotificationController.initializeLocalNotifications(debug: true);
+  await NotificationController.initializeNotificationsEventListeners();
+  scheduleMicrotask(() async {
+    await NotificationController.getInitialNotificationAction();
+  });
   runApp(const MyApp());
 }
 
