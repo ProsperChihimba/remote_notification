@@ -3,6 +3,7 @@ import 'package:awesome_notifications_fcm/awesome_notifications_fcm.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:remote_notification/services/local_notification.dart';
 
 class NotificationController extends ChangeNotifier {
   static final NotificationController _instance =
@@ -156,6 +157,23 @@ class NotificationController extends ChangeNotifier {
       fontSize: 16,
     );
     debugPrint('"Silent Data": ${silentData.data}');
+
+    //
+    if (silentData.data!['IsLiveScore'] == "true") {
+      LocalNotification.createLiveScoreNotification(
+        id: 1,
+        title: silentData.data!['title']!,
+        body: silentData.data!['body']!,
+        largeIcon: silentData.data!['largeIcon'],
+      );
+    }
+
+    //
+    if (silentData.createdLifeCycle == NotificationLifeCycle.Foreground) {
+      debugPrint("FOREGROUND");
+    } else {
+      debugPrint("BACKGROUND");
+    }
   }
 
   // use this method to detect when a new fcm token is received
