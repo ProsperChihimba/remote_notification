@@ -197,5 +197,11 @@ class NotificationController extends ChangeNotifier {
   // SUBSCRIBE OR UNSUBSCRIBE TO TOPICS
   static Future<void> subscribeToTopics(String topic) async {
     await AwesomeNotificationsFcm().subscribeToTopic(topic);
+    debugPrint("Subscribe to $topic");
+  }
+
+  static Future<void> unSubscribeToTopics(String topic) async {
+    await AwesomeNotificationsFcm().subscribeToTopic(topic);
+    debugPrint("Unsubscribe to $topic");
   }
 }

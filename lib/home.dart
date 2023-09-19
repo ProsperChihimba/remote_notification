@@ -28,12 +28,28 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          child: Text("Press"),
-          onPressed: () {},
-        ),
+        body: SafeArea(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Center(
+            child: ElevatedButton(
+              child: Text("Subscribe"),
+              onPressed: () {
+                NotificationController.subscribeToTopics("Anime");
+              },
+            ),
+          ),
+          Center(
+            child: ElevatedButton(
+              child: Text("Unsubscribe"),
+              onPressed: () {
+                NotificationController.unSubscribeToTopics("Anime");
+              },
+            ),
+          ),
+        ],
       ),
-    );
+    ));
   }
 }
